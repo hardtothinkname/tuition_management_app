@@ -1,0 +1,6 @@
+npm add jquery
+npm add datatable
+npm add datatables.net
+npm add datatables.net-buttons
+npm add datatables.net-dt
+npm add bootstrap
