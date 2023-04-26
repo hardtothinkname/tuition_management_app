@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tuition_management_app/static/css/main.24cce0bd.css",
-    "main.js": "/tuition_management_app/static/js/main.5b0840de.js",
-    "static/js/787.03022b50.chunk.js": "/tuition_management_app/static/js/787.03022b50.chunk.js",
-    "static/media/logo.svg": "/tuition_management_app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/tuition_management_app/index.html",
-    "main.24cce0bd.css.map": "/tuition_management_app/static/css/main.24cce0bd.css.map",
-    "main.5b0840de.js.map": "/tuition_management_app/static/js/main.5b0840de.js.map",
-    "787.03022b50.chunk.js.map": "/tuition_management_app/static/js/787.03022b50.chunk.js.map"
+    "main.css": "/static/css/main.24cce0bd.css",
+    "main.js": "/static/js/main.c34c4798.js",
+    "static/js/787.03022b50.chunk.js": "/static/js/787.03022b50.chunk.js",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.24cce0bd.css.map": "/static/css/main.24cce0bd.css.map",
+    "main.c34c4798.js.map": "/static/js/main.c34c4798.js.map",
+    "787.03022b50.chunk.js.map": "/static/js/787.03022b50.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.24cce0bd.css",
-    "static/js/main.5b0840de.js"
+    "static/js/main.c34c4798.js"
   ]
 }
