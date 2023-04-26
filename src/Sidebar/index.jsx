@@ -74,7 +74,7 @@ const SideBar = props => {
                                     <Link style={{ padding: 0 }} to="/students/list"><FontAwesomeIcon icon={faCircle} style={{ ...style.sideBarIcon, color: "transparent" }} /> All Students</Link>
                                 </li>
                                 <li>
-                                    <Link style={{ padding: 0 }} to="/points/epoint"><FontAwesomeIcon icon={faCircle} style={{ ...style.sideBarIcon, color: "transparent" }} /> Pending</Link>
+                                    <Link style={{ padding: 0 }} to="/students/add"><FontAwesomeIcon icon={faCircle} style={{ ...style.sideBarIcon, color: "transparent" }} /> Pending</Link>
                                 </li>
                             </ul>
                         </div>

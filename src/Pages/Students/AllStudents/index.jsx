@@ -118,28 +118,28 @@ export const AllStudents = () => {
                                 <div className="form-group row">
                                     <label className="col-md-3 col-form-label">Card ID</label>
                                     <div className="col-md-9">
-                                        <Form.Control type="text" placeholder="Enter email" />
+                                        <Form.Control type="text" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div className="form-group row">
                                     <label className="col-md-3 col-form-label">Phone</label>
                                     <div className="col-md-9">
-                                        <Form.Control type="text" placeholder="Enter email" />
+                                        <Form.Control type="text" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div className="form-group row">
                                     <label className="col-md-3 col-form-label">Email</label>
                                     <div className="col-md-9">
-                                        <Form.Control type="text" placeholder="Enter email" />
+                                        <Form.Control type="text" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div className="form-group row">
                                     <label className="col-md-3 col-form-label">Age</label>
                                     <div className="col-md-9">
-                                        <select className="form-control" name="age">
+                                        <select className="form-control" name="">
                                             <option value="">-</option>
                                         </select>
                                     </div>

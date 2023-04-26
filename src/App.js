@@ -38,6 +38,7 @@ import AddParent from './Pages/Parents/AddParents';
 import AddPayment from './Pages/Payment/AddPayment';
 import Movement from './Pages/Inventory/Movement';
 import Package from './Pages/Inventory/Package';
+import { useState } from 'react';
 
 const style = {
   wrapper: {
@@ -49,28 +50,33 @@ const style = {
 }
 
 function App() {
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar1, setShowSidebar1] = useState(false);
+
+  const handleSideBar = (event) => {
+    console.log("!@#!@#!@")
+    setShowSidebar(!showSidebar)
+  }
   return (
     <Container fluid>
-      <NavBar />
+      <NavBar handleSideBar={handleSideBar}/>
       <Row>
         <div>
-          <SideBar />
+          {
+            showSidebar && <SideBar />  
+          }
         </div>
         <Col>
           <div style={style.wrapper}>
 
             <Routes>
               <Route path="/" element={<Dashboard />}></Route>
-
               <Route path="/payment" element={<Payment />} />
               <Route path="/payment/add" element={<AddPayment />} />
-
               <Route path="/points/epoint" element={<Epoint />} />
               <Route path="/points/ewallet" element={<Ewallet />} />
-
               <Route path="/students/list" element={<AllStudents />} />
               <Route path="/students/add" element={<AddStudents />} />
-
               <Route path="/parents/list" element={<Parents />} />
               <Route path="/parents/add" element={<AddParent />} />
 
