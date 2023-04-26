@@ -1,44 +1,117 @@
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "jquery/dist/jquery.min.js";
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import "datatables.net-buttons/js/dataTables.buttons.js";
+import "datatables.net-buttons/js/buttons.colVis.js";
+import "datatables.net-buttons/js/buttons.flash.js";
+import "datatables.net-buttons/js/buttons.html5.js";
+import "datatables.net-buttons/js/buttons.print.js";
+import $ from "jquery";
 
-import React from 'react'
+import React, { useEffect } from "react";
+import CopyRightFooter from "../../Components/CopyRightFooter";
 import { Link } from "react-router-dom";
 
-export const Parents = (props) => {
+const payments = [
+    {
+        "No": "Luke",
+        "Name": "mr",
+        "Status": "Lawson",
+        "Gender": 28,
+        "Email": "Software Developer",
+        "Phone": "coding",
+        "Child(s)": "Software Developer"
+    },
+]
+
+export const Parent = () => {
+    useEffect(() => {
+        if (!$.fn.DataTable.isDataTable("#mytable")) {
+            $(document).ready(function () {
+                $("#mytable").DataTable({
+                    processing: true,
+                    select: {
+                        style: "single",
+                    },
+                });
+            });
+        } else {
+            console.log("already datatable")
+        }
+        // }, 1000);
+    })
+
+    const showTable = () => {
+        try {
+            return payments.map((item, index) => {
+                return (
+                    <tr key={index}>
+                        {/* <td className="text-xs font-weight-bold">{index + 1}</td> */}
+                        <td className="text-xs font-weight-bold">{item.No}</td>
+                        <td className="text-xs font-weight-bold">{item.Name}</td>
+                        <td className="text-xs font-weight-bold">{item.Status}</td>
+                        <td className="text-xs font-weight-bold">{item.Gender}</td>
+                        <td className="text-xs font-weight-bold">{item.Email}</td>
+                        <td className="text-xs font-weight-bold">{item.Phone}</td>
+                        <td className="text-xs font-weight-bold">{item["Payment Method"]}</td>
+                        <td className="text-xs font-weight-bold">{item["Total ($)"]}</td>
+                        <td></td>
+                    </tr>
+                );
+            });
+        } catch (e) {
+            alert(e.message);
+        }
+    };
+
     return (
-        <div id="page-content-wrapper">
+        <div className="page-content-wrapper">
             <div class="container-fluid py-2">
                 <div class="row">
                     <div class="col-6 my-auto">
-                        <h4 class="py-2 mb-0 font-weight-bold">All Parents</h4>
+                        <h4 class="py-2 mb-0 font-weight-bold">
+                            All Parents					</h4>
                     </div>
                     <div class="col-6 my-auto text-right">
-                        <Link to="/parents/add" class="btn btn-primary">
-                            <FontAwesomeIcon icon={faPlusCircle} /> Add New</Link>
+                        <div class="btn-group">
+                            {/* <a href="https://tuition.robocube.cloud/payment/add" class="btn btn-primary"><i class="fa mr-1 fa-plus-circle"></i> Add New</a> */}
+                            <Link to={'/payment/add'} class="btn btn-primary"><i class="fa mr-1 fa-plus-circle"></i> Add New</Link>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="https://tuition.robocube.cloud/payment/add?by_class" class="dropdown-item">New Payment by Class</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid container-wrapper">
-                <div class="table-responsive">
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>
-                        Search:
-                        {/* <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0"> */}
-                    </label></div></div></div><div class="row"><div class="col-sm-12"><table class="DTable table dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+            <div className="container-fluid py-2">
+                <div className="table-responsive p-0 pb-2">
+                    <table id="mytable" className="align-items-center justify-content-center mb-0">
                         <thead>
-                            <tr role="row"><th style={{ width: "7%" }} class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending">No</th><th style={{ width: "20%" }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending">Name</th><th style={{ width: "10%" }} class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Gender: activate to sort column ascending">Gender</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending">Email</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Phone: activate to sort column ascending">Phone</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Child(s): activate to sort column ascending">Child(s)</th></tr></thead>
+                            <tr>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Date / Time</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Receipt</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">No</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Date</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Student</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Cashier</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Payment Method</th>
+                                <th className="text-uppercase text-secondary text-sm font-weight-bolder opacity-7 ps-2">Total ($)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
                         <tbody>
-
-
-                            <tr class="odd"><td valign="top" colspan="7" class="dataTables_empty">No data available in table</td></tr></tbody>
-                    </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item next disabled" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                            {showTable()}
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
-            <div class="container-fluid pt-3 border-top" id="copyright">
-                2023 © Robocube Tuition. All right reserved. Powered by <a href="https://synorexcloud.com/" target="_blank">Synorex</a>
-            </div>
+            <CopyRightFooter/>
         </div>
     )
 }
 
-export default Parents
+export default Parent;

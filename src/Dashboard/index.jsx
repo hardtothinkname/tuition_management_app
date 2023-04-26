@@ -20,7 +20,7 @@ const Dashboard = () => {
         <div className="card mb-3">
           <div className="card-body py-0 mt-2">
             <div className="d-flex">
-              <div style={{ width: "5%" }}><i className="fa fa-fw fa-bullhorn"></i></div>
+              <div style={{ width: "5%" }}><FontAwesomeIcon icon={faBullhorn} /> </div>
               <div style={{ width: "95%" }}><marquee className="m-0">Welcome to Robocube Tuition</marquee></div>
             </div>
           </div>
@@ -84,8 +84,6 @@ const Dashboard = () => {
             <div className="card mb-3">
               <div className="card-body font-weight-bold pb-0">Monthly Joined</div>
               <div className="card-body">
-                {/* <canvas id="chart-joined" height="180" width="360" style={{display: "block", boxSizing: "border-box", height: "144px", width: "288px"}}></canvas> */}
-                {/* <canvas id="myChart" width="400" height="400"></canvas> */}
                 <Chart/>
               </div>
             </div>
