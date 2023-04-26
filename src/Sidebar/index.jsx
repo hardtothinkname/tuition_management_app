@@ -18,7 +18,7 @@ const sideBarStyle = {
 const SideBar = props => {
     const [open, setOpen] = useState({ points: false, students: false, attendance: false, inventory: false, content: false, secondary: false, settings: false });
     const [active, setActive] = useState({
-        home: false, payment: false
+        home: false, payment: false, parents: false, calendar: false, homework: false, classes: false, teachers:false, reports:false
     })
 
     function handleActiveNavItem(navItemName) {
@@ -82,8 +82,8 @@ const SideBar = props => {
                     <li>
                         <Link to="/parents/list"><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faUserCircle} /> Parents</Link>
                     </li>
-                    <li>
-                        <Link to="/calendar"><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faCalendar} /> Calendar</Link>
+                    <li className={active.calendar ? "active" : ""}>
+                        <Link to="/calendar" onClick={() => handleActiveNavItem("calendar")}><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faCalendar} /> Calendar</Link>
                     </li>
                     <li  >
                         <a style={{ ...style.sideBarItem, cursor: 'pointer' }} onClick={() => setOpen({ ...open, attendance: !open.attendance })}
@@ -148,17 +148,17 @@ const SideBar = props => {
                             </div>
                         </Collapse >
                     </li>
-                    <li  >
-                        <Link to="/homework/list"><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faBook} /> Homework</Link>
+                    <li className={active.homework ? "active" : ""} >
+                        <Link to="/homework/list" onClick={() => handleActiveNavItem("calendar")}><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faBook} /> Homework</Link>
                     </li>
-                    <li  >
-                        <Link to="/classes/list"><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faSchool} /> Classes</Link>
+                    <li  className={active.classes ? "active" : ""}>
+                        <Link to="/classes/list" onClick={() => handleActiveNavItem("classes")}><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faSchool} /> Classes</Link>
                     </li>
-                    <li  >
-                        <Link to="/teachers/list"><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faUserTie} /> Teachers</Link>
+                    <li  className={active.teachers ? "active" : ""}>
+                        <Link to="/teachers/list" onClick={() => handleActiveNavItem("teachers")}><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faUserTie} /> Teachers</Link>
                     </li>
-                    <li>
-                        <Link to="/reports"><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faChartPie} /> Reports</Link>
+                    <li className={active.reports ? "active" : ""}>
+                        <Link to="/reports" onClick={() => handleActiveNavItem("reports")}><FontAwesomeIcon fixedWidth style={style.sideBarIcon} icon={faChartPie} /> Reports</Link>
                     </li>
                     <li>
                         <a style={{ ...style.sideBarItem, cursor: 'pointer' }} onClick={() => setOpen({ ...open, secondary: !open.secondary })}
